@@ -1,6 +1,7 @@
 package com.aptech.security.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ public class UserRestController {
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
-    public JwtUser getAuthenticatedUser(HttpServletRequest request) {
+    public JwtUser getAuthenticatedUser(HttpServletRequest request, HttpServletResponse response) {
         String token = request.getHeader(tokenHeader);
         String username = jwtTokenUtil.getUsernameFromToken(token);
         JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);

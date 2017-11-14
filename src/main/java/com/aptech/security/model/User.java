@@ -63,6 +63,8 @@ public class User {
     @NotNull
     private Date lastPasswordResetDate;
 
+    private String number;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "USER_AUTHORITY",
@@ -141,4 +143,14 @@ public class User {
     public void setLastPasswordResetDate(Date lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public User setNumber(String number) {
+        this.number = number;
+        return this;
+    }
+
 }

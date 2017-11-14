@@ -2,11 +2,13 @@ package com.aptech;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-public class demo-jwtApplication {
+@PropertySource("classpath:sms.properties")
+public class DemoJwtApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(demo-jwtApplication.class, args);
+		SpringApplication.run(DemoJwtApplication.class, args);
 	}
 }
